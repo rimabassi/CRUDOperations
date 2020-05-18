@@ -1,0 +1,30 @@
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="CRUDOperations.controller.MainView" displayBlock="true">
+	<App>
+		<pages>
+			<sap.m.semantic:FullscreenPage xmlns:sap.m.semantic="sap.m.semantic" title="Organization Units Overview" id="Page1" semanticRuleSet="Optimized" showFooter="false">
+			    <sap.m.semantic:content><VBox width="60%" direction="Column" id="vbox" fitContainer="true" class="vbox">
+			            <items>
+			                <List noDataText="Drop list items here" id="List" items="{/OrgUnits}">
+			                <items>
+			                    <ObjectListItem type="Active" title="{OrgUnitDescription}" number="{ path: 'OrgUnitID' }" id="OrgUnitRow" press="OnSelectionChange"/>
+			                </items>
+			                <infoToolbar>
+			                    <Toolbar width="100%" id="__toolbar2" design="Solid">
+			                    <content>
+			                        <Button width="40px" id="Refresh" icon="sap-icon://refresh" type="Transparent" press="OnRefresh"/>
+			                        <Button width="40px" id="Add" icon="sap-icon://add" type="Transparent" press="OnAdd"/>
+			                        <Button width="40px" id="Edit" icon="sap-icon://edit" type="Transparent" press="OnEdit"/>
+			                        <Button width="40px" id="Delete" icon="sap-icon://delete" type="Transparent" press="OnDelete"/>
+			                    </content>
+			                    </Toolbar>
+			                </infoToolbar>
+			                </List>
+			            </items>
+			        </VBox>
+			    </sap.m.semantic:content>
+			</sap.m.semantic:FullscreenPage>
+			<Page title="{i18n>title}">
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

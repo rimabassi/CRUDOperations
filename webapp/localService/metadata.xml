@@ -1,0 +1,49 @@
+<edmx:Edmx
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" Version="1.0">
+    <edmx:DataServices
+        xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="1.0">
+        <Schema
+            xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices"
+            xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="Mat">
+            <EntityType Name="Materials">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="4" Collation="UCA"/>
+                <Property Name="Name" Type="Edm.String" Nullable="true" MaxLength="30" Collation="UCA"/>
+                <Property Name="Price" Type="Edm.Decimal" Nullable="true" Precision="19" Scale="4"/>
+                <Property Name="UnitOfMeasure" Type="Edm.String" Nullable="true" MaxLength="2" Unicode="false" Collation="1252LATIN1"/>
+            </EntityType>
+            <EntityType Name="Positions">
+                <Key>
+                    <PropertyRef Name="PositionID"/>
+                </Key>
+                <Property Name="PositionID" Type="Edm.String" Nullable="false" MaxLength="10" Collation="UCA"/>
+                <Property Name="PositionDescription" Type="Edm.String" Nullable="true" MaxLength="30" Unicode="false" Collation="1252LATIN1"/>
+            </EntityType>
+            <EntityType Name="OrgUnits">
+                <Key>
+                    <PropertyRef Name="OrgUnitID"/>
+                </Key>
+                <Property Name="OrgUnitID" Type="Edm.String" Nullable="false" MaxLength="10" Collation="UCA"/>
+                <Property Name="OrgUnitDescription" Type="Edm.String" Nullable="true" MaxLength="30" Unicode="false" Collation="1252LATIN1"/>
+            </EntityType>
+            <EntityType Name="OrgUnit_Position">
+                <Key>
+                    <PropertyRef Name="OrgUnitID"/>
+                    <PropertyRef Name="PositionID"/>
+                </Key>
+                <Property Name="OrgUnitID" Type="Edm.String" Nullable="false" MaxLength="10" Collation="UCA"/>
+                <Property Name="PositionID" Type="Edm.String" Nullable="false" MaxLength="10" Collation="UCA"/>
+                <Property Name="PositionDescription" Type="Edm.String" Nullable="true" MaxLength="30" Unicode="false" Collation="1252LATIN1"/>
+            </EntityType>
+            <EntityContainer Name="Mat_Container" m:IsDefaultEntityContainer="true">
+                <EntitySet Name="Materials" EntityType="Mat.Materials"/>
+                <EntitySet Name="Positions" EntityType="Mat.Positions"/>
+                <EntitySet Name="OrgUnits" EntityType="Mat.OrgUnits"/>
+                <EntitySet Name="OrgUnit_Position" EntityType="Mat.OrgUnit_Position"/>
+            </EntityContainer>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
